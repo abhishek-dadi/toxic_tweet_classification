@@ -1,0 +1,9 @@
+# Large generated artifacts (stored on Google Drive, not in Git)
+aps_toxicity_output/
+data/
+models/
+checkpoints/
+*.bin
+*.safetensors
+__pycache__/
+.ipynb_checkpoints/

@@ -1,0 +1,285 @@
+{
+  "config": {
+    "out_dir": "/content/drive/MyDrive/aps_toxicity",
+    "baseline": "bert-base-uncased",
+    "improved": "cardiffnlp/twitter-roberta-base-2022-154m",
+    "train_size": 100000,
+    "train_pos_frac": 0.25,
+    "val_size": 15000,
+    "test_size": 20000,
+    "epochs": 2,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "max_len": 128,
+    "n_boot": 10000,
+    "n_boot_auc": 2000,
+    "n_perm": 10000,
+    "n_sub": 1000,
+    "alpha": 0.05,
+    "seed": 42,
+    "retrain": false,
+    "skip_training": false
+  },
+  "models": {
+    "baseline": "bert-base-uncased",
+    "improved": "twitter-roberta-base-2022-154m"
+  },
+  "thresholds": {
+    "baseline": 0.84,
+    "improved": 0.86
+  },
+  "test_set": {
+    "n": 20000,
+    "positives": 1598,
+    "prevalence": 0.0799
+  },
+  "data_summary": {
+    "population_sizes": {
+      "train": 1804874,
+      "validation": 97320,
+      "test": 97320
+    },
+    "population_prevalence": {
+      "train": 0.0799690172277954,
+      "validation": 0.07882244143033293,
+      "test": 0.07991163173037402
+    },
+    "sample_sizes": {
+      "train": 100000,
+      "val": 15000,
+      "test": 20000
+    },
+    "sample_prevalence": {
+      "train": 0.25,
+      "val": 0.0782,
+      "test": 0.0799
+    },
+    "sampling_check_val": {
+      "n": 15000,
+      "positives": 1173,
+      "sample_prevalence": 0.0782,
+      "population_prevalence": 0.07882244143033293,
+      "z": -0.28290948339790734,
+      "p_value": 0.7772462247458956
+    },
+    "sampling_check_test": {
+      "n": 20000,
+      "positives": 1598,
+      "sample_prevalence": 0.0799,
+      "population_prevalence": 0.07991163173037402,
+      "z": -0.006066518898800035,
+      "p_value": 0.9951596479224787
+    }
+  },
+  "point_metrics": {
+    "baseline": {
+      "accuracy": 0.95015,
+      "precision": 0.6929993577392421,
+      "recall": 0.6752190237797246,
+      "f1": 0.6839936608557845,
+      "roc_auc": 0.9617317266624581
+    },
+    "improved": {
+      "accuracy": 0.95275,
+      "precision": 0.7216564833672776,
+      "recall": 0.6652065081351689,
+      "f1": 0.6922826440898731,
+      "roc_auc": 0.9649561782409515
+    }
+  },
+  "confidence_intervals": {
+    "baseline": {
+      "f1": {
+        "estimate": 0.6839936608557845,
+        "ci": [
+          0.6649350227283279,
+          0.7021549400228372
+        ],
+        "bootstrap_se": 0.009506084153821426
+      },
+      "accuracy": {
+        "estimate": 0.95015,
+        "ci": [
+          0.9471,
+          0.95315
+        ],
+        "bootstrap_se": 0.0015431090073422713,
+        "wilson_ci": [
+          0.9470463946786226,
+          0.9530807152600665
+        ]
+      },
+      "roc_auc": {
+        "estimate": 0.9617317266624581,
+        "ci": [
+          0.9578502113398819,
+          0.9653248688672307
+        ],
+        "bootstrap_se": 0.0019244875260756072
+      }
+    },
+    "improved": {
+      "f1": {
+        "estimate": 0.6922826440898731,
+        "ci": [
+          0.6728139095837387,
+          0.7105265290454662
+        ],
+        "bootstrap_se": 0.009560730065481405
+      },
+      "accuracy": {
+        "estimate": 0.95275,
+        "ci": [
+          0.9497,
+          0.95565
+        ],
+        "bootstrap_se": 0.0015103064735888607,
+        "wilson_ci": [
+          0.9497215372804526,
+          0.9556045740707446
+        ]
+      },
+      "roc_auc": {
+        "estimate": 0.9649561782409515,
+        "ci": [
+          0.9615090019414608,
+          0.9683688381765193
+        ],
+        "bootstrap_se": 0.001778590616245849
+      }
+    }
+  },
+  "paired_difference": {
+    "f1": {
+      "observed_delta": 0.008288983234088554,
+      "ci": [
+        -0.004278833188875502,
+        0.020955922443008625
+      ],
+      "bootstrap_se": 0.0063766844535686025,
+      "z": 1.2998891970340114,
+      "p_value_normal_approx": 0.1936389482029528,
+      "p_value_bootstrap": 0.195,
+      "P(delta>0)": 0.9025,
+      "bootstrap_skewness": -0.019705085455070714
+    },
+    "accuracy": {
+      "observed_delta": 0.0025999999999999357,
+      "ci": [
+        0.0005500000000000504,
+        0.004649999999999932
+      ],
+      "bootstrap_se": 0.0010358163964529208,
+      "z": 2.510097357894169,
+      "p_value_normal_approx": 0.012069787965265396,
+      "p_value_bootstrap": 0.0152,
+      "P(delta>0)": 0.9924,
+      "bootstrap_skewness": -0.019101243615123872
+    },
+    "roc_auc": {
+      "observed_delta": 0.0032244515784933814,
+      "ci": [
+        0.0011090722263007724,
+        0.0055465758284611345
+      ],
+      "bootstrap_se": 0.0011194001711565802,
+      "z": 2.8805173177361874,
+      "p_value_normal_approx": 0.00397023140566087,
+      "p_value_bootstrap": 0.004,
+      "P(delta>0)": 0.998,
+      "bootstrap_skewness": 0.14184641012302496
+    }
+  },
+  "mcnemar": {
+    "table_[base_correct,base_wrong]x[imp_correct,imp_wrong]": [
+      [
+        18810,
+        193
+      ],
+      [
+        245,
+        752
+      ]
+    ],
+    "b_baseline_only_correct": 193,
+    "c_improved_only_correct": 245,
+    "chi2": 5.938356164383562,
+    "method": "chi-square (continuity corrected)",
+    "p_value": 0.01481482981748514,
+    "odds_ratio_c_over_b": 1.2694300518134716
+  },
+  "permutation_test": {
+    "observed_delta_f1": 0.008288983234088554,
+    "p_value": 0.19158084191580843,
+    "null_mean": 3.802383315048993e-05,
+    "null_sd": 0.006361029010815411
+  },
+  "sampling_experiment": [
+    {
+      "n": 100,
+      "mean_delta_f1": 0.014352526330696428,
+      "sd_delta_f1": 0.09825963859042745,
+      "P(improved_wins)": 0.462,
+      "P(baseline_wins)": 0.334,
+      "power_mcnemar": 0.002
+    },
+    {
+      "n": 250,
+      "mean_delta_f1": 0.005043288714240226,
+      "sd_delta_f1": 0.06075020056985545,
+      "P(improved_wins)": 0.504,
+      "P(baseline_wins)": 0.422,
+      "power_mcnemar": 0.014
+    },
+    {
+      "n": 500,
+      "mean_delta_f1": 0.007476285788340422,
+      "sd_delta_f1": 0.041338028415646044,
+      "P(improved_wins)": 0.56,
+      "P(baseline_wins)": 0.406,
+      "power_mcnemar": 0.035
+    },
+    {
+      "n": 1000,
+      "mean_delta_f1": 0.007980374288454722,
+      "sd_delta_f1": 0.02885004367159611,
+      "P(improved_wins)": 0.613,
+      "P(baseline_wins)": 0.377,
+      "power_mcnemar": 0.048
+    },
+    {
+      "n": 2500,
+      "mean_delta_f1": 0.008448199507002142,
+      "sd_delta_f1": 0.01860797928948723,
+      "P(improved_wins)": 0.672,
+      "P(baseline_wins)": 0.326,
+      "power_mcnemar": 0.116
+    },
+    {
+      "n": 5000,
+      "mean_delta_f1": 0.008928664384060276,
+      "sd_delta_f1": 0.012876279981244581,
+      "P(improved_wins)": 0.751,
+      "P(baseline_wins)": 0.249,
+      "power_mcnemar": 0.211
+    },
+    {
+      "n": 10000,
+      "mean_delta_f1": 0.008775591966219399,
+      "sd_delta_f1": 0.009124587787027207,
+      "P(improved_wins)": 0.837,
+      "P(baseline_wins)": 0.163,
+      "power_mcnemar": 0.407
+    },
+    {
+      "n": 20000,
+      "mean_delta_f1": 0.007852284590623553,
+      "sd_delta_f1": 0.006287565273359725,
+      "P(improved_wins)": 0.905,
+      "P(baseline_wins)": 0.095,
+      "power_mcnemar": 0.663
+    }
+  ],
+  "n_for_80pct_power": null,
+  "decision": "Fail to reject H0 at alpha = 0.05. The observed \u0394F1 = +0.0083 has a 95% CI [-0.0043, +0.0210] that includes 0 (permutation p = 0.1916), so the difference could plausibly be due to variation in the test sample."
+}
